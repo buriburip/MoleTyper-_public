@@ -1,0 +1,707 @@
+[gd_scene load_steps=33 format=3 uid="uid://chnkgne4gfqy7"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_pum43"]
+[ext_resource type="Texture2D" uid="uid://2sbvd8t4chpy" path="res://MoleTyperAssets/IMG_0043.PNG" id="1_xrj35"]
+[ext_resource type="Texture2D" uid="uid://dd85bxhjrm8js" path="res://MoleTyperAssets/IMG_0046.PNG" id="2_5wv60"]
+[ext_resource type="Texture2D" uid="uid://dcfuladcuyrcx" path="res://MoleTyperAssets/logos/M.PNG" id="2_8ha1a"]
+[ext_resource type="Texture2D" uid="uid://cf7dvn528aqh7" path="res://MoleTyperAssets/logos/O.PNG" id="3_6ykum"]
+[ext_resource type="Texture2D" uid="uid://bh1fp3ji6818c" path="res://MoleTyperAssets/IMG_0044.PNG" id="3_kk587"]
+[ext_resource type="Texture2D" uid="uid://cnxwwa7amjbk7" path="res://MoleTyperAssets/logos/L.PNG" id="4_u0gcg"]
+[ext_resource type="Texture2D" uid="uid://boccbumn8c34n" path="res://MoleTyperAssets/IMG_0049.PNG" id="5_804lm"]
+[ext_resource type="Texture2D" uid="uid://bhav0tijxvc7e" path="res://MoleTyperAssets/IMG_0048.PNG" id="5_n0ck2"]
+[ext_resource type="Texture2D" uid="uid://cj5tjwoapfqa3" path="res://MoleTyperAssets/logos/E.PNG" id="5_x8e7x"]
+[ext_resource type="Texture2D" uid="uid://l40ak5s6cw70" path="res://MoleTyperAssets/logos/T.PNG" id="6_6rxon"]
+[ext_resource type="AudioStream" uid="uid://cpkgsnu8rmqry" path="res://MoleTyperAssets/start.mp3" id="6_dwxpr"]
+[ext_resource type="AudioStream" uid="uid://f65ivu0pdwo1" path="res://MoleTyperAssets/countdown.mp3" id="7_22nkd"]
+[ext_resource type="Texture2D" uid="uid://dlusp4iq3lo63" path="res://MoleTyperAssets/logos/Y.PNG" id="7_ilenl"]
+[ext_resource type="AudioStream" uid="uid://c0nolv2fspnj6" path="res://MoleTyperAssets/punch1.mp3" id="8_8pmqw"]
+[ext_resource type="Texture2D" uid="uid://316xyg8ma5yj" path="res://MoleTyperAssets/logos/P.PNG" id="8_udl62"]
+[ext_resource type="Texture2D" uid="uid://dk6s7x7hmc2qf" path="res://MoleTyperAssets/logos/E (2).PNG" id="9_dbg3a"]
+[ext_resource type="AudioStream" uid="uid://v7p0qgjmlc4a" path="res://MoleTyperAssets/punch2.mp3" id="9_wwq0h"]
+[ext_resource type="AudioStream" uid="uid://blu56xxso84c1" path="res://MoleTyperAssets/dodge.mp3" id="10_33add"]
+[ext_resource type="Texture2D" uid="uid://j87tk3oj6cby" path="res://MoleTyperAssets/logos/R.PNG" id="10_52mcp"]
+[ext_resource type="Texture2D" uid="uid://cupaw8k0csvlf" path="res://MoleTyperAssets/IMG_0073.PNG" id="11_wiqh1"]
+[ext_resource type="Texture2D" uid="uid://cbhqq85tbpll3" path="res://MoleTyperAssets/IMG_0074.PNG" id="12_26fid"]
+[ext_resource type="AudioStream" uid="uid://cw61gswqtfw6u" path="res://MoleTyperAssets/なかよしクッキング.mp3" id="12_mjckn"]
+[ext_resource type="Texture2D" uid="uid://q2qmxo5xm4e1" path="res://MoleTyperAssets/IMG_0075.PNG" id="13_73fkn"]
+[ext_resource type="AudioStream" uid="uid://dsa1qr6ltsa8w" path="res://MoleTyperAssets/PushButton.mp3" id="13_worxb"]
+[ext_resource type="AudioStream" uid="uid://bq01hfe3orxiu" path="res://MoleTyperAssets/今日も始めましょう！.mp3" id="14_7gov4"]
+[ext_resource type="Texture2D" uid="uid://bepv3t50eyq1d" path="res://MoleTyperAssets/IMG_0070.PNG" id="14_eb1tg"]
+[ext_resource type="Texture2D" uid="uid://cks4tskjw0nnd" path="res://MoleTyperAssets/IMG_0071.PNG" id="15_a71wi"]
+[ext_resource type="Texture2D" uid="uid://dwk3adeyromii" path="res://MoleTyperAssets/IMG_0072.PNG" id="16_n2r13"]
+[ext_resource type="Texture2D" uid="uid://ctepg6u2or6qa" path="res://MoleTyperAssets/IMG_0076.PNG" id="20_5xupm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chr8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_wiqh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_26fid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_73fkn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eivcr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_eb1tg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_a71wi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_n2r13")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("ranking_name", "ranking_score")]
+script = ExtResource("1_pum43")
+ranking_name = NodePath("Ranking/Rankings/Name")
+ranking_score = NodePath("Ranking/Rankings/Score")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.591757, 0.70755, 0.63444, 1)
+
+[node name="Logos" type="Control" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="M" type="TextureRect" parent="Menu/Logos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -627.0
+offset_top = -371.0
+offset_right = -327.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8ha1a")
+
+[node name="O" type="TextureRect" parent="Menu/Logos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.0
+offset_top = -353.0
+offset_right = -111.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6ykum")
+
+[node name="L" type="TextureRect" parent="Menu/Logos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -373.0
+offset_right = 817.0
+offset_bottom = 627.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_u0gcg")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="E" type="TextureRect" parent="Menu/Logos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -343.0
+offset_right = 364.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_x8e7x")
+
+[node name="T" type="TextureRect" parent="Menu/Logos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -641.0
+offset_top = 63.0
+offset_right = -341.0
+offset_bottom = 363.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_6rxon")
+
+[node name="Y" type="TextureRect" parent="Menu/Logos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -412.0
+offset_top = 55.0
+offset_right = -112.0
+offset_bottom = 355.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ilenl")
+
+[node name="P" type="TextureRect" parent="Menu/Logos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = 73.0
+offset_right = 140.0
+offset_bottom = 373.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_udl62")
+
+[node name="E2" type="TextureRect" parent="Menu/Logos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 86.0
+offset_top = 76.0
+offset_right = 386.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_dbg3a")
+
+[node name="R" type="TextureRect" parent="Menu/Logos"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 340.0
+offset_top = 67.0
+offset_right = 640.0
+offset_bottom = 367.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_52mcp")
+
+[node name="Mole" type="Control" parent="Menu"]
+layout_mode = 1
+anchor_right = 0.188
+anchor_bottom = 0.277
+offset_right = -200.64
+offset_bottom = -159.44
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu/Mole"]
+position = Vector2(1049, 256)
+sprite_frames = SubResource("SpriteFrames_chr8k")
+frame_progress = 0.393056
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Menu/Mole"]
+position = Vector2(1052, 258)
+sprite_frames = SubResource("SpriteFrames_eivcr")
+frame_progress = 0.62894
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -91.0
+offset_right = 79.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_xrj35")
+
+[node name="RankingButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_5wv60")
+
+[node name="ExitButton" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_kk587")
+
+[node name="CreditButton" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 1094.0
+offset_top = 24.0
+offset_right = 1252.0
+offset_bottom = 85.0
+icon = ExtResource("20_5xupm")
+
+[node name="InGame" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InGame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.2
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="InGame/VBoxContainer"]
+layout_mode = 2
+text = "0 score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="InGame/VBoxContainer"]
+layout_mode = 2
+text = "30 seconds left"
+horizontal_alignment = 1
+
+[node name="LimitTimer" type="Timer" parent="InGame"]
+
+[node name="EndScore" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="EndScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.472546, 0.815842, 0.766471, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndScore"]
+custom_minimum_size = Vector2(0, 200)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -54.5
+offset_right = 79.0
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="EndScore/VBoxContainer"]
+layout_mode = 2
+text = "Ranked in !"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="EndScore/VBoxContainer"]
+layout_mode = 2
+text = "records : "
+
+[node name="LineEdit" type="LineEdit" parent="EndScore/VBoxContainer"]
+visible = false
+layout_mode = 2
+placeholder_text = "Enter Your Name"
+max_length = 10
+
+[node name="UploadButton" type="Button" parent="EndScore/VBoxContainer"]
+visible = false
+layout_mode = 2
+icon = ExtResource("5_804lm")
+
+[node name="BackButton" type="Button" parent="EndScore/VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("5_n0ck2")
+
+[node name="Ranking" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Ranking"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.563863, 0.672434, 0.908659, 1)
+
+[node name="Rankings" type="Control" parent="Ranking"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ranks" type="VBoxContainer" parent="Ranking/Rankings"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 221.25
+offset_top = -193.0
+offset_right = 275.25
+offset_bottom = 193.0
+grow_vertical = 2
+
+[node name="1" type="Label" parent="Ranking/Rankings/Ranks"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "1th"
+
+[node name="2" type="Label" parent="Ranking/Rankings/Ranks"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "2nd"
+
+[node name="3" type="Label" parent="Ranking/Rankings/Ranks"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "3rd"
+
+[node name="4" type="Label" parent="Ranking/Rankings/Ranks"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "4th"
+
+[node name="5" type="Label" parent="Ranking/Rankings/Ranks"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "5th"
+
+[node name="6" type="Label" parent="Ranking/Rankings/Ranks"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "6th"
+
+[node name="7" type="Label" parent="Ranking/Rankings/Ranks"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "7th"
+
+[node name="8" type="Label" parent="Ranking/Rankings/Ranks"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "8th"
+
+[node name="9" type="Label" parent="Ranking/Rankings/Ranks"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "9th"
+
+[node name="10" type="Label" parent="Ranking/Rankings/Ranks"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "10th"
+
+[node name="Name" type="VBoxContainer" parent="Ranking/Rankings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -193.0
+offset_right = 27.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="1" type="Label" parent="Ranking/Rankings/Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="2" type="Label" parent="Ranking/Rankings/Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="3" type="Label" parent="Ranking/Rankings/Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="4" type="Label" parent="Ranking/Rankings/Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="5" type="Label" parent="Ranking/Rankings/Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="6" type="Label" parent="Ranking/Rankings/Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="7" type="Label" parent="Ranking/Rankings/Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="8" type="Label" parent="Ranking/Rankings/Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="9" type="Label" parent="Ranking/Rankings/Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="10" type="Label" parent="Ranking/Rankings/Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="Score" type="VBoxContainer" parent="Ranking/Rankings"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -296.28
+offset_top = -193.0
+offset_right = -242.28
+offset_bottom = 193.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="1" type="Label" parent="Ranking/Rankings/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="2" type="Label" parent="Ranking/Rankings/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="3" type="Label" parent="Ranking/Rankings/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="4" type="Label" parent="Ranking/Rankings/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="5" type="Label" parent="Ranking/Rankings/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="6" type="Label" parent="Ranking/Rankings/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="7" type="Label" parent="Ranking/Rankings/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="8" type="Label" parent="Ranking/Rankings/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="9" type="Label" parent="Ranking/Rankings/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="10" type="Label" parent="Ranking/Rankings/Score"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "----------"
+
+[node name="BackButton" type="Button" parent="Ranking"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.0
+offset_top = 42.92
+offset_right = 79.0
+offset_bottom = 100.92
+grow_horizontal = 2
+icon = ExtResource("5_n0ck2")
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.389807, 0.354964, 0.154482, 1)
+
+[node name="BackButton" type="Button" parent="Credits"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("5_n0ck2")
+
+[node name="license" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 61.0
+offset_right = 1238.0
+offset_bottom = 641.0
+text = "This game uses Godot Engine, available under the following license:
+
+Copyright (c) 2014-present Godot Engine contributors.
+Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+
+[node name="name" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 135.0
+offset_right = 396.0
+offset_bottom = 182.0
+text = "produced by buriburing"
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Start" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_dwxpr")
+volume_db = -10.0
+
+[node name="Countdown" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("7_22nkd")
+volume_db = -10.0
+
+[node name="Punch1" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_8pmqw")
+volume_db = -10.0
+
+[node name="Punch2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_wwq0h")
+volume_db = -10.0
+
+[node name="Dodge" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("10_33add")
+
+[node name="なかよしクッキング" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("12_mjckn")
+volume_db = -40.0
+
+[node name="PushButton" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("13_worxb")
+volume_db = -10.0
+
+[node name="今日も始めましょう！" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("14_7gov4")
+volume_db = -20.0
+
+[connection signal="pressed" from="Menu/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/RankingButton" to="." method="_on_ranking_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Menu/CreditButton" to="." method="_on_credit_button_pressed"]
+[connection signal="timeout" from="InGame/LimitTimer" to="." method="_on_limit_timer_timeout"]
+[connection signal="pressed" from="EndScore/VBoxContainer/UploadButton" to="." method="_on_upload_button_pressed"]
+[connection signal="pressed" from="EndScore/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Ranking/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Ranking/BackButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Credits/BackButton" to="." method="_on_back_button_pressed"]

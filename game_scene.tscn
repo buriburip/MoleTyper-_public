@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://60ta4c3wjo1u"]
+
+[ext_resource type="Script" path="res://game_scene.gd" id="1_47bas"]
+[ext_resource type="PackedScene" uid="uid://vg7g8gnaimbt" path="res://bush.tscn" id="2_g1yh4"]
+[ext_resource type="PackedScene" uid="uid://chnkgne4gfqy7" path="res://hud.tscn" id="3_s6hcm"]
+[ext_resource type="PackedScene" uid="uid://biql5js4tajux" path="res://SilentWolf.tscn" id="4_vl3kp"]
+
+[node name="GameScene" type="Node2D" node_paths=PackedStringArray("bushes_up", "bushes_middle", "bushes_down")]
+script = ExtResource("1_47bas")
+bush_scene = ExtResource("2_g1yh4")
+bushes_up = NodePath("Bushes/Up")
+bushes_middle = NodePath("Bushes/Middle")
+bushes_down = NodePath("Bushes/Down")
+metadata/_edit_group_ = true
+
+[node name="HUD" parent="." instance=ExtResource("3_s6hcm")]
+
+[node name="Bushes" type="Node2D" parent="."]
+
+[node name="Up" type="Node2D" parent="Bushes"]
+
+[node name="Middle" type="Node2D" parent="Bushes"]
+
+[node name="Down" type="Node2D" parent="Bushes"]
+
+[node name="MoleTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SilentWolf" parent="." instance=ExtResource("4_vl3kp")]
+
+[connection signal="timeout" from="MoleTimer" to="." method="_on_mole_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

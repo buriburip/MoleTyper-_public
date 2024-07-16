@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://vg7g8gnaimbt"]
+
+[ext_resource type="Script" path="res://bush.gd" id="1_eyib8"]
+[ext_resource type="Texture2D" uid="uid://dstl6p8qkpuv3" path="res://MoleTyperAssets/IMG_0037.PNG" id="2_rbbb2"]
+[ext_resource type="Texture2D" uid="uid://dvsqjevtf4066" path="res://MoleTyperAssets/IMG_0039.PNG" id="2_u217a"]
+[ext_resource type="Texture2D" uid="uid://dk4nyaye4l458" path="res://MoleTyperAssets/IMG_0040.PNG" id="2_vr80u"]
+[ext_resource type="Texture2D" uid="uid://6x4fybksh103" path="res://MoleTyperAssets/IMG_0041.PNG" id="3_xm1hi"]
+[ext_resource type="Texture2D" uid="uid://dhodftnbxltid" path="res://MoleTyperAssets/IMG_0036.PNG" id="3_ywpxi"]
+[ext_resource type="Texture2D" uid="uid://8unaq85c2q5e" path="res://MoleTyperAssets/IMG_0042.PNG" id="4_gt0yr"]
+[ext_resource type="Texture2D" uid="uid://bg3ttlrdr16sv" path="res://MoleTyperAssets/IMG_0035.PNG" id="4_xeuox"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2n21"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vr80u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xm1hi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gt0yr")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rbbb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ywpxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xeuox")
+}],
+"loop": false,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xeuox")
+}],
+"loop": true,
+"name": &"none",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xeuox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ywpxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rbbb2")
+}],
+"loop": false,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rbbb2")
+}],
+"loop": false,
+"name": &"wait",
+"speed": 25.0
+}]
+
+[node name="Bushes" type="Node2D"]
+script = ExtResource("1_eyib8")
+
+[node name="Mole" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mole"]
+sprite_frames = SubResource("SpriteFrames_d2n21")
+animation = &"death"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_u217a")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -21.0
+offset_top = 52.0
+offset_right = 19.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoleTimer" type="Timer" parent="."]
+wait_time = 1.3
+one_shot = true
+
+[node name="InputLimitTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="animation_finished" from="Mole/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="MoleTimer" to="." method="_on_mole_timer_timeout"]
+[connection signal="timeout" from="InputLimitTimer" to="." method="_on_input_limit_timer_timeout"]
